@@ -1,38 +1,19 @@
 # Neural Network from Scratch
 
-Builds a fully functional neural network **from scratch** using only NumPy (no TensorFlow / PyTorch), with forward pass, backpropagation, training on a dataset, and visualization of loss convergence and decision boundaries.
+Build a fully functional neural network **from scratch** using only NumPy. Includes forward pass, backpropagation, training, and visualization of loss convergence and decision boundaries.
 
 ---
 
 ## Abstract
 
-This project demonstrates how a neural network works at a fundamental level:
+This project demonstrates the fundamentals of neural networks:
 
 - Implements **forward pass** and **backpropagation** from scratch.  
-- Trains on a simple classification or regression dataset.  
+- Trains on a simple classification dataset.  
 - Visualizes **loss convergence** and **decision boundary evolution**.  
-- Produces GIFs and plots to illustrate the training dynamics.  
+- Produces GIFs and plots to illustrate training dynamics.
 
-The project emphasizes understanding the **core mechanics of neural networks**, rather than using high-level libraries.
-
----
-
-## Why This Project
-
-- Shows you **don’t just “use AI”**, you understand it.  
-- Highlights fundamentals: matrix operations, activation functions, and gradient computation.  
-- Demonstrates training dynamics visually, showing convergence and learning rates.  
-- Admissions signal: "Builder, not consumer."  
-
----
-
-## Development Iterations
-
-- **v1.0:** Forward pass implementation and initial loss computation  
-- **v2.0:** Backpropagation and weight updates  
-- **v3.0:** Training loop with multiple epochs and loss convergence plots  
-- **v4.0:** Decision boundary visualization  
-- **v5.0:** Optional GIFs showing evolution over epochs  
+Emphasizes understanding **core mechanics of neural networks** without high-level libraries.
 
 ---
 
@@ -46,180 +27,130 @@ The project emphasizes understanding the **core mechanics of neural networks**, 
 
 ## Phase 0: Setup & Dataset Preparation
 
-**Scientific Question:**  
-“How do we structure inputs and outputs for training a neural network?”  
+**Input:** Feature matrix `X`, target vector `y`  
+**Output:** Initialized weights and biases saved in `data/parameters.npy`  
 
-**Description:**  
-- Define dataset (classification or regression).  
-- Initialize network architecture and weights randomly.  
+**Code:** `code/setup_dataset.py`  
 
-**Implementation:**  
-- Input: Feature matrix X, target vector y  
-- Output: Initialized weights and biases saved as `parameters.npy`  
-
-**End-state / Outputs:**  
-- Code: `code/setup_dataset.py`  
-- Saved weights: `data/parameters.npy`  
-
-**What This Proves:**  
-- Understanding of input/output preparation and network initialization.  
+**Purpose:** Prepares dataset and initializes network parameters.
 
 ---
 
 ## Phase 1: Forward Pass
 
-**Scientific Question:**  
-“How does input propagate through the network?”  
+**Input:** Dataset + initial weights  
+**Output:** Network predictions  
 
-**Description:**  
-- Compute activations layer by layer.  
-- Calculate initial loss (binary cross-entropy or MSE).  
+**Code:** `code/forward_pass.py`  
 
-**Implementation:**  
-- Forward pass through all layers  
-- Compute network output  
+**Example Output:**
 
-**Example Output:**  
 Forward pass output:
 [[0.50000401]
 [0.49999837]
 [0.49998104]
 [0.5 ]]
-
-**End-state / Outputs:**  
-- Code: `code/forward_pass.py`  
-- Output: Forward activations printed or logged  
-
-**What This Proves:**  
-- Network computes predictions correctly using initialized weights.  
+**Purpose:** Demonstrates how inputs propagate through the network.
 
 ---
 
 ## Phase 2: Backpropagation
 
-**Scientific Question:**  
-“How do we compute gradients to update weights?”  
+**Input:** Forward pass outputs + targets  
+**Output:** Updated weights saved to `parameters.npy`  
 
-**Description:**  
-- Compute derivatives of loss w.r.t weights and biases.  
-- Update weights using gradient descent.  
+**Code:** `code/backprop.py`  
 
-**Implementation:**  
-- Backpropagation through all layers  
-- Single training step demonstrated  
+**Example Output:**
 
-**Example Output:**  
 Loss before backprop: 0.6931538403054052
 Loss after one backprop step: 0.6931522900226582
 
-markdown
-Copy code
-
-**End-state / Outputs:**  
-- Code: `code/backprop.py`  
-- Updated weights saved in `parameters.npy`  
-
-**What This Proves:**  
-- Gradients are correctly computed and weights updated.  
+**Purpose:** Shows gradient computation and weight updates.
 
 ---
 
 ## Phase 3: Training Loop
 
-**Scientific Question:**  
-“How does the network learn over multiple epochs?”  
+**Input:** Dataset + initial weights  
+**Output:** Trained weights, loss per epoch  
 
-**Description:**  
-- Train network for multiple epochs  
-- Track loss at each epoch  
-- Optionally save weights periodically  
+**Code:** `code/training_loop.py`  
+**Weights:** `data/parameters.npy`  
 
-**Implementation:**  
-- Loop over epochs  
-- Forward pass → Loss → Backpropagation → Weight update  
-- Record loss and optionally intermediate outputs  
-
-**End-state / Outputs:**  
-- Code: `code/training_loop.py`  
-- Saved weights: `data/parameters.npy`  
-- Loss values per epoch (for plotting)  
-
-**What This Proves:**  
-- Network can learn patterns in data over time.  
-- Training dynamics can be visualized.  
+**Purpose:** Trains network over multiple epochs, records loss for visualization.
 
 ---
 
 ## Phase 4: Loss Convergence Visualization
 
 **Scientific Question:**  
-“How does the loss evolve during training?”  
-
-**Description:**  
-- Plot loss vs epochs for different learning rates.  
-- Include snapshots of loss at key epochs (e.g., 0, 240, 499).  
-- Optional: GIF showing evolution of loss curve.  
+“How does the loss evolve during training?”
 
 **Implementation:**  
-- Use `matplotlib` to plot loss curves  
-- Annotate loss at specific epochs  
+- Plot **loss vs epochs** for different learning rates  
+- Snapshots at key epochs: 0, 240, 499  
+- Optional GIF showing full evolution  
 
-**Example Outputs:**  
-- `plots/phase_4_training_dynamics/main/loss_curve.png`  
-- `plots/phase_4_training_dynamics/all_epochs/epoch_000_loss.png`  
-- `plots/phase_4_training_dynamics/all_epochs/epoch_240_loss.png`  
-- `plots/phase_4_training_dynamics/all_epochs/epoch_499_loss.png`  
-- Optional GIF: `loss_evolution.gif`  
+**Outputs:**  
 
-**What This Proves:**  
-- Visual demonstration of learning progress  
-- Effect of learning rate and optimization  
+**Loss Curve (Main Plot):**  
+![Loss Curve](plots/phase_4_training_dynamics/main/loss_curve.png)  
+
+**Loss Evolution GIF:**  
+![Loss Evolution](plots/phase_4_training_dynamics/main/loss_evolution.gif)  
+
+**Snapshots at Key Epochs:**  
+
+| Epoch 0 | Epoch 240 | Epoch 499 |
+|---------|-----------|-----------|
+| ![Epoch 0](plots/phase_4_training_dynamics/all_epochs/epoch_000_loss.png) | ![Epoch 240](plots/phase_4_training_dynamics/all_epochs/epoch_240_loss.png) | ![Epoch 499](plots/phase_4_training_dynamics/all_epochs/epoch_499_loss.png) |
+
+**Purpose:**  
+- Visual demonstration of learning dynamics  
+- Shows how loss decreases over time  
+- Highlights effects of learning rates on convergence  
 
 ---
 
 ## Phase 5: Decision Boundary Visualization
 
 **Scientific Question:**  
-“How does the network classify data points in feature space?”  
-
-**Description:**  
-- Plot decision boundaries as training progresses  
-- Include snapshots at key epochs (0, 240, 499)  
-- Optional: GIF showing evolution of decision boundary over all epochs  
+“How does the network classify points in feature space?”  
 
 **Implementation:**  
-- Compute network predictions for a meshgrid  
-- Plot regions colored by predicted class  
-- Overlay true data points  
+- Compute predictions for a grid of points  
+- Plot decision regions and overlay true data points  
+- Snapshots at key epochs: 0, 340, 499  
+- Optional GIF showing evolution  
 
-**Example Outputs:**  
-- `plots/phase_5_decision_boundary/main/decision_boundary_epoch_0.png`  
-- `plots/phase_5_decision_boundary/main/decision_boundary_epoch_340.png`  
-- `plots/phase_5_decision_boundary/main/decision_boundary_epoch_499.png`  
-- `plots/phase_5_decision_boundary/main/final_predictions.png`  
-- Optional GIF: `decision_boundary.gif`  
+**Outputs:**  
 
-**What This Proves:**  
-- Network learns to separate classes correctly  
-- Visualizes improvement in predictions over time  
+**Key Epoch Snapshots:**  
+
+| Epoch 0 | Epoch 340 | Epoch 499 | Final Predictions |
+|---------|-----------|-----------|-----------------|
+| ![Epoch 0](plots/phase_5_decision_boundary/main/decision_boundary_epoch_0.png) | ![Epoch 340](plots/phase_5_decision_boundary/main/decision_boundary_epoch_340.png) | ![Epoch 499](plots/phase_5_decision_boundary/main/decision_boundary_epoch_499.png) | ![Final Predictions](plots/phase_5_decision_boundary/main/final_predictions.png) |
+
+**Decision Boundary Evolution GIF:**  
+![Decision Boundary GIF](plots/phase_5_decision_boundary/main/decision_boundary.gif)  
+
+**Purpose:**  
+- Shows network learning to separate classes correctly  
+- Demonstrates improvement over epochs visually  
 
 ---
 
 ## Phase 6: Optional Enhancements
 
 **Ideas:**  
-- Animate combined loss + decision boundary  
-- Test different activation functions (ReLU, Sigmoid, Tanh)  
-- Compare learning rates  
-- Evaluate on a slightly more complex dataset  
+- Animate combined **loss + decision boundary**  
+- Compare different activation functions (ReLU, Sigmoid, Tanh)  
+- Experiment with learning rates and network depth  
 
-**Outputs:**  
-- GIF combining training dynamics  
-- Plots comparing activations, losses, or decision boundaries  
-
-**What This Proves:**  
-- Ability to extend the project creatively  
-- Shows deeper understanding and experimentation  
+**Purpose:**  
+- Extends the project creatively  
+- Showcases deeper understanding and experimentation  
 
 ---
 
@@ -231,11 +162,8 @@ This project demonstrates **full end-to-end neural network implementation from s
 2. Forward pass computation  
 3. Backpropagation and weight updates  
 4. Full training loop with loss tracking  
-5. Visualization of loss convergence and decision boundaries  
+5. Visualization of **loss convergence** and **decision boundaries**  
 
-- Emphasizes **fundamentals of neural networks** without using high-level libraries.  
-- Combines **numerical computation, visualization, and experimentation**.  
-- Optional extensions allow showcasing creativity and understanding of hyperparameters and architectures.  
-
----
-
+- Emphasizes **fundamentals of neural networks** without libraries.  
+- Combines **computation, visualization, and experimentation**.  
+- Optional enhancements demonstrate creativity and advanced understanding.  
