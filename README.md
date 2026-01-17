@@ -124,7 +124,7 @@ Loss after one backprop step: 0.6931522900226582
 
 Shows a key metric or distribution of predictions during training:
 
-![Training Graph](plots/phase_4_training_dynamics/main/training_graph.png)
+![Training Graph](plots/phase_4_training_dynamics/main/loss_comparison_lr.png)
 
 **Purpose:** Visual representation of network behavior aside from loss.
 
@@ -146,7 +146,9 @@ Shows **network predictions at important stages of training**:
 
 | Epoch 0 | Epoch 240 | Epoch 499 |
 |---------|-----------|-----------|
-| ![Epoch 0](plots/phase_4_training_dynamics/all_epochs/epoch_000.png) | ![Epoch 240](plots/phase_4_training_dynamics/all_epochs/epoch_240.png) | ![Epoch 499](plots/phase_4_training_dynamics/all_epochs/epoch_499.png) |
+| ![Epoch 0](plots/phase_4_training_dynamics/leftovers/temp_epoch_0.png) 
+| ![Epoch 240](plots/phase_4_training_dynamics/leftovers/temp_epoch_240.png)  
+| ![Epoch 499](plots/phase_4_training_dynamics/leftovers/temp_epoch_499.png) |
 
 **Explanation:**  
 - **Epoch 0:** Network untrained → predictions random  
@@ -159,7 +161,7 @@ Shows **network predictions at important stages of training**:
 
 Visualizes **training progression across all epochs**:
 
-![Training GIF](plots/phase_4_training_dynamics/main/training_evolution.gif)
+![Training GIF](plots/phase_4_training_dynamics/main/training_progress.gif)
 
 **Purpose:** Clear visual demonstration of learning over time.
 
@@ -177,13 +179,15 @@ Visualizes **training progression across all epochs**:
 
 **Key Epoch Snapshots:**  
 
-| Epoch 0 | Epoch 340 | Epoch 499 | Final Predictions |
+| Epoch 0 | Epoch 240 | Epoch 499 | Final Predictions |
 |---------|-----------|-----------|-----------------|
-| ![Epoch 0](plots/phase_5_decision_boundary/main/decision_boundary_epoch_0.png) | ![Epoch 340](plots/phase_5_decision_boundary/main/decision_boundary_epoch_340.png) | ![Epoch 499](plots/phase_5_decision_boundary/main/decision_boundary_epoch_499.png) | ![Final Predictions](plots/phase_5_decision_boundary/main/final_predictions.png) |
+| ![Epoch 0](plots/phase_5_decision_boundary/main/db_epoch_0.png) 
+| ![Epoch 240](plots/phase_5_decision_boundary/main/db_epoch_240.png) 
+| ![Epoch 499](plots/phase_5_decision_boundary/main/db_epoch_499.png) 
 
 **Decision Boundary Evolution GIF:**  
 
-![Decision Boundary GIF](plots/phase_5_decision_boundary/main/decision_boundary.gif)
+ ![Decision Boundary GIF](plots/phase_5_decision_boundary/main/decision_boundary_evolution.gif)
 
 **Purpose:** Demonstrates network learning to classify correctly over time.
 
