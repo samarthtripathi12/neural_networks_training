@@ -1,6 +1,6 @@
 # Neural Network from Scratch
 
-Build a fully functional neural network **from scratch** using only NumPy. Includes forward pass, backpropagation, training, and visualization of loss convergence and decision boundaries.
+Build a fully functional neural network **from scratch** using only NumPy. This project includes forward pass, backpropagation, training, and visualization of loss convergence and decision boundaries.
 
 ---
 
@@ -44,12 +44,12 @@ Emphasizes understanding **core mechanics of neural networks** without high-leve
 **Code:** `code/forward_pass.py`  
 
 **Example Output:**
-
 Forward pass output:
 [[0.50000401]
 [0.49999837]
 [0.49998104]
 [0.5 ]]
+
 **Purpose:** Demonstrates how inputs propagate through the network.
 
 ---
@@ -57,12 +57,11 @@ Forward pass output:
 ## Phase 2: Backpropagation
 
 **Input:** Forward pass outputs + targets  
-**Output:** Updated weights saved to `parameters.npy`  
+**Output:** Updated weights saved to `data/parameters.npy`  
 
 **Code:** `code/backprop.py`  
 
 **Example Output:**
-
 Loss before backprop: 0.6931538403054052
 Loss after one backprop step: 0.6931522900226582
 
@@ -82,34 +81,60 @@ Loss after one backprop step: 0.6931522900226582
 
 ---
 
-## Phase 4: Loss Convergence Visualization
+## Phase 4: Loss Convergence & Training Dynamics
 
 **Scientific Question:**  
-“How does the loss evolve during training?”
+“How does the network learn over time, and how do individual predictions evolve during training?”
 
 **Implementation:**  
-- Plot **loss vs epochs** for different learning rates  
-- Snapshots at key epochs: 0, 240, 499  
-- Optional GIF showing full evolution  
+- Track loss at every epoch  
+- Plot **overall loss curve** to show convergence  
+- Include **snapshots of network predictions / graphs at key epochs** (0, 240, 499)  
+- Optional GIF showing **loss evolution over all epochs**  
 
-**Outputs:**  
+---
 
-**Loss Curve (Main Plot):**  
+### **Loss Curve (Overall Training)**
+
+This graph shows how the loss decreases over the entire training period:
+
 ![Loss Curve](plots/phase_4_training_dynamics/main/loss_curve.png)  
 
-**Loss Evolution GIF:**  
-![Loss Evolution](plots/phase_4_training_dynamics/main/loss_evolution.gif)  
+**Purpose:**  
+- Demonstrates **convergence trend** of the network  
+- Highlights effects of learning rate and optimization  
 
-**Snapshots at Key Epochs:**  
+---
 
-| Epoch 0 | Epoch 240 | Epoch 499 |
-|---------|-----------|-----------|
+### **Snapshot Graphs at Key Epochs**
+
+These show the **actual network behavior at specific points during training**:  
+
+| Epoch 0 (Initial) | Epoch 240 (Mid Training) | Epoch 499 (Final) |
+|------------------|-------------------------|-----------------|
 | ![Epoch 0](plots/phase_4_training_dynamics/all_epochs/epoch_000_loss.png) | ![Epoch 240](plots/phase_4_training_dynamics/all_epochs/epoch_240_loss.png) | ![Epoch 499](plots/phase_4_training_dynamics/all_epochs/epoch_499_loss.png) |
 
+**Explanation:**  
+- **Epoch 0:** Network starts untrained → high loss (e.g., 0.6932 for binary classification).  
+- **Epoch 240:** Network starts learning → loss decreases, predictions begin improving.  
+- **Epoch 499:** Network converges → low loss, predictions stabilize.  
+
+---
+
+### **Loss Evolution GIF (Optional)**
+
+A GIF showing **how the loss changes at every epoch** during training:
+
+![Loss Evolution](plots/phase_4_training_dynamics/main/loss_evolution.gif)  
+
 **Purpose:**  
-- Visual demonstration of learning dynamics  
-- Shows how loss decreases over time  
-- Highlights effects of learning rates on convergence  
+- Makes training dynamics **visually clear**  
+- Shows learning progression continuously rather than just snapshots  
+
+**What This Phase Proves:**  
+1. The network is **learning and converging** correctly.  
+2. You can **see concrete improvements** in predictions over epochs.  
+3. Combining **curve + snapshot graphs + GIF** makes your README **professional and competitive**.
 
 ---
 
@@ -166,4 +191,4 @@ This project demonstrates **full end-to-end neural network implementation from s
 
 - Emphasizes **fundamentals of neural networks** without libraries.  
 - Combines **computation, visualization, and experimentation**.  
-- Optional enhancements demonstrate creativity and advanced understanding.  
+- Optional enhancements demonstrate creativity and advanced understanding.
